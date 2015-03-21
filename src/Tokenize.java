@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 
 /*
  * This program reads in a file line by line, tokenizes
- * it and outputs the tokens in a stream (new-line delimited).
+ * it and outputs the tokens in a stream (new-line character delimited).
  */
 
 public class Tokenize {
@@ -19,15 +19,15 @@ public class Tokenize {
 		String line = null;
 	
 		try {
-			while((line = br.readLine()) != null){			// for all lines in the input stream
-				String[] words = line.split("\\s+");
+			while((line = br.readLine()) != null){		
+				String[] words = line.split("\\s+");		// split by whitespace
 				String result = "";
 				for (String word : words){
 					word = word.replaceAll("\\W", "");		// remove non-word characters
 					word = word.replaceAll("-", "");		// remove hyphen
-					word = word.replaceAll("'", "");		// remove conjunctions
+					word = word.replaceAll("'", "");		// remove apostrophe
 					word = word.toLowerCase();				// convert to lowercase
-					result += word + "\n";					// delimit by new-line
+					result += word + "\n";					
 				}
 			
 				bw.write(result);
@@ -36,7 +36,6 @@ public class Tokenize {
 			}
 		} catch (IOException e) {
 			System.out.println("Trouble reading input or writing output.");
-			e.printStackTrace();
 		}
 	}
 

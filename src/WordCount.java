@@ -6,8 +6,8 @@ import java.io.OutputStreamWriter;
 
 
 /* 
- * This program counts all the words from the input stream
- * and outputs the counts to standard output. The 
+ * This program counts frequency of the words from the input stream
+ * and outputs the counts to standard output. 
  * Input : A stream of tokens consisting of 1 word per line, 
  * sorted lexicographically.
  * Output : A stream of <word, count> pairs, for each word seen
@@ -28,7 +28,7 @@ public class WordCount {
 			while((input=br.readLine())!=null){
 				if(!input.equals(key)){							// new key encountered
 					if(key != null)	{
-						bw.write(key + "\t" + count + "\n");		// write out old key-count
+						bw.write(key + "\t" + count + "\n");	// write out old key-count
 						bw.flush();
 						count = 0L;
 					}
@@ -37,11 +37,10 @@ public class WordCount {
 				count++;										// increment count for current key
 			}
 			
-			bw.write(key + "\t" + count + "\n");					// write out the last key-count
+			bw.write(key + "\t" + count + "\n");				// write out the last key-count
 			bw.flush();
 		} catch (IOException e) {
 			System.out.println("Trouble reading input or writing output.");
-			e.printStackTrace();
 		}
 		
 	}
