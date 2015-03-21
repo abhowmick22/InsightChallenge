@@ -28,7 +28,7 @@ public class WordCount {
 			while((input=br.readLine())!=null){
 				if(!input.equals(key)){							// new key encountered
 					if(key != null)	{
-						bw.write(key + " " + count + "\n");		// write out old key-count
+						bw.write(key + "\t" + count + "\n");		// write out old key-count
 						bw.flush();
 						count = 0L;
 					}
@@ -37,7 +37,7 @@ public class WordCount {
 				count++;										// increment count for current key
 			}
 			
-			bw.write(key + " " + count + "\n");					// write out the last key-count
+			bw.write(key + "\t" + count + "\n");					// write out the last key-count
 			bw.flush();
 		} catch (IOException e) {
 			System.out.println("Trouble reading input or writing output.");

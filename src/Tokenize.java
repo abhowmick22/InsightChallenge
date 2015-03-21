@@ -24,6 +24,8 @@ public class Tokenize {
 				String result = "";
 				for (String word : words){
 					word = word.replaceAll("\\W", "");		// remove non-word characters
+					word = word.replaceAll("-", "");		// remove hyphen
+					word = word.replaceAll("'", "");		// remove conjunctions
 					word = word.toLowerCase();				// convert to lowercase
 					result += word + "\n";					// delimit by new-line
 				}
